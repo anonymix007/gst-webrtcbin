@@ -1,0 +1,15 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+PointerAlignment: Right
+ColumnLimit: 350
+BraceWrapping:
+    BeforeLambdaBody: true
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AlignConsecutiveMacros: true
+AlignArrayOfStructures: Left
+AlignConsecutiveAssignments: false
+IndentCaseLabels: true
+IndentCaseBlocks: true
+SpaceAfterCStyleCast: true
+AllowShortFunctionsOnASingleLine: false

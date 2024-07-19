@@ -1,0 +1,4 @@
+build/
+main
+vgcore*
+*.log.temp
