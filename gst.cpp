@@ -20,7 +20,8 @@ static GObject *messages_channel;
 // #define TURN_SERVER "turn://free:free@freeturn.tel:5349"
 
 static std::string audio_desc = "audiotestsrc is-live=true wave=red-noise ! audioconvert ! audioresample ! queue ! opusenc perfect-timestamp=true ! rtpopuspay name=audiopay pt=96 ! application/x-rtp, encoding-name=OPUS ! queue";
-static std::string video_desc = "ximagesrc display-name=:0.0 remote=1 blocksize=16384 use-damage=0 show-pointer=true ! videoconvert ! video/x-raw,format=I420 ! queue ! x264enc name=vcodec threads=8 aud=false b-adapt=false key-int-max=60 sliced-threads=true byte-stream=true tune=zerolatency speed-preset=veryfast bitrate=20000 pass=17 ! rtph264pay aggregate-mode=zero-latency config-interval=-1 ! queue";
+//static std::string video_desc = "ximagesrc display-name=:0.0 remote=1 blocksize=16384 use-damage=0 show-pointer=true ! videoconvert ! video/x-raw,format=I420 ! queue ! x264enc name=vcodec threads=8 aud=false b-adapt=false key-int-max=60 sliced-threads=true byte-stream=true tune=zerolatency speed-preset=veryfast bitrate=20000 pass=17 ! rtph264pay aggregate-mode=zero-latency config-interval=-1 ! queue";
+static std::string video_desc = "ximagesrc display-name=:0.0 remote=1 blocksize=16384 use-damage=0 show-pointer=true ! videoconvert ! queue ! vp8enc deadline=1 keyframe-max-dist=2000 ! rtpvp8pay name=videopay picture-id-mode=15-bit pt=96 ! queue";
 
 void init(int *argc, char **argv[]) {
     // TODO: Do we need to inject any options here instead?
