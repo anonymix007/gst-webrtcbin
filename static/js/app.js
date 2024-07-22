@@ -21,6 +21,10 @@ function kmp(iceServers) {
 
   window.audioContext = undefined;
 
+  pc.onicecandidate = function (event) {
+	  console.log(event);
+  }
+
   pc.ontrack = function (event) {
     if (event.track.kind === "audio") {
       console.log("Got audio track!", event.track);
